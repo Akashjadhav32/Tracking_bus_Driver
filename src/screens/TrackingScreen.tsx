@@ -106,7 +106,8 @@ export const TrackingScreen = () => {
         }
     };
 
-    const speedKmh = location?.speed ? Math.max(0, location.speed * 3.6).toFixed(0) : '0';
+    // Speed is already in km/h (converted in useLocationTracking)
+    const speedKmh = location?.speed ? Math.max(0, location.speed).toFixed(0) : '0';
 
     return (
         <SafeAreaView style={styles.container}>
@@ -137,7 +138,7 @@ export const TrackingScreen = () => {
                 <Text style={styles.infoValue}>
                     {location ? `${location.latitude.toFixed(5)}, ${location.longitude.toFixed(5)}` : 'Acquiring GPS...'}
                 </Text>
-                <Text style={styles.updateNote}>Updates every 30 seconds</Text>
+                <Text style={styles.updateNote}>Updates every 15 seconds</Text>
             </View>
 
             <View style={styles.footer}>
